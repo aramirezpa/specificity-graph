@@ -62,7 +62,11 @@ var generateCssData = function(origCss) {
     });
 
   });
-
+	for(var i = 0; i < result.length; i++){
+		if(!result[i+1].specificity >= result[i].specificity){
+			throw new Error("Especificidad es incorrecta");
+		}
+	}
   return results;
 
 }
